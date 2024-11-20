@@ -1,0 +1,66 @@
+import Dashboard from "@/layouts/Dashboard";
+import Main from "@/layouts/Main";
+import Ambulence from "@/pages/Admin/Ambulence/Ambulence";
+import Calendar from "@/pages/Admin/Calendar/Calendar";
+import Departments from "@/pages/Admin/Department/Departments";
+import Doctors from "@/pages/Admin/Doctors/Doctors";
+import Employees from "@/pages/Admin/Employees/Employees";
+import Login from "@/pages/authentication/Login";
+import AdminOverview from "@/pages/DashboardOverview/AdminOverview/AdminOverview";
+import Landing from "@/pages/landing/Landing";
+import { createBrowserRouter } from "react-router-dom";
+
+export const router = createBrowserRouter([
+   {
+      path: "/",
+      element: <Main />,
+      children: [
+         {
+            path: "/",
+            element: <Landing />,
+         },
+         {
+            path: "/authentication/login",
+            element: <Login />,
+         },
+      ],
+   },
+   {
+      path: "/dashboard",
+      element: <Dashboard />,
+      children: [
+         {
+            path: "/dashboard",
+            element: <AdminOverview />,
+         },
+         {
+            path: "/dashboard/departments",
+            element: <Departments />
+         },
+         {
+            path: "/dashboard/employee-list",
+            element: <Employees />
+         },
+         {
+            path: "/dashboard/",
+            element: <Employees />
+         },
+        
+         {
+            path: "/dashboard/doctors",
+            element: <Doctors />
+         },
+        
+         {
+            path: "/dashboard/ambulence",
+            element: <Ambulence />
+         },
+        
+       
+         {
+            path: "/dashboard/calendar",
+            element: <Calendar />
+         },
+      ],
+   },
+]);
