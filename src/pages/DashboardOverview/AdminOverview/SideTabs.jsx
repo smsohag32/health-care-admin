@@ -1,4 +1,7 @@
 import { useState } from "react";
+import DoctorTab from "./DoctorTab";
+import StaffTab from "./Stafftab";
+import NurseTab from "./NurseTab";
 
 const SideTabs = () => {
    const [activeTab, setActiveTab] = useState("Doctors");
@@ -39,19 +42,13 @@ const SideTabs = () => {
          {/* Tab Content */}
          <div className="mt-4">
             {activeTab === "Doctors" && (
-               <div>
-                  <p>Doctors content goes here.</p>
-               </div>
+               <DoctorTab />
             )}
             {activeTab === "Staff" && (
-               <div>
-                  <p>Staff content goes here.</p>
-               </div>
+               <StaffTab />
             )}
             {activeTab === "Nurse" && (
-               <div>
-                  <p>Nurse content goes here.</p>
-               </div>
+               <NurseTab />
             )}
          </div>
       </div>
