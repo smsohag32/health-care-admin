@@ -22,7 +22,7 @@ const Login = () => {
 
    const onSubmit = async (userInfo) => {
       setLoginError(null);
-         navigate("/dashboard")
+      navigate("/dashboard")
       // try {
       //    const success = await logIn(userInfo.phoneNo, userInfo.password);
       //    if (success) {
@@ -44,9 +44,9 @@ const Login = () => {
          <div className="flex items-center justify-center w-full lg:w-11/12">
             <div className="w-full max-w-md bg-white rounded-[8px] px-8 pt-8 pb-9 space-y-6">
                <div className="flex flex-col items-center justify-center mb-4">
-                  <img src={loginImage} alt="Health Care BD Logo" className="h-20 w-20" /> 
+                  <img src={loginImage} alt="Health Care BD Logo" className="h-20 w-20" />
                   {/* <p>Health Care</p> */}
-               </div> 
+               </div>
 
                <h1 className="text-start text-2xl pb-3 font-bold text-gray-700">Login Your Account</h1>
 
@@ -57,7 +57,7 @@ const Login = () => {
                         placeholder="Phone Number"
                         label="Enter Your Phone Number"
                         type="tel"
-                        defaultValue={"+88"}
+                        defaultValue={"+8801540042699"}
                         className={`primary-input ${errors.phoneNo ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
                         labelClassName={`transition-all duration-300 ${errors.phoneNo ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
                         {...register("phoneNo", {
@@ -71,37 +71,37 @@ const Login = () => {
                      {errors.phoneNo && <p className="text-red-500 text-xs mt-1">{errors.phoneNo.message}</p>}
                   </div>
 
-              <div className=" mt-5">
-              <div className="w-full relative">
-                     <FloatingLabelInput
-                        id="password"
-                        label="Password"
-                        type={passwordVisible ? "text" : "password"}
-                        placeholder="******"
-                        defaultValue={"password"}
-                        className={`primary-input ${errors.password ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
-                        labelClassName={`transition-all duration-300 ${errors.password ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
-                        {...register("password", {
-                           required: "Password is required",
-                           minLength: {
-                              value: 6,
-                              message: "Password must be at least 6 characters",
-                           },
-                        })}
-                     />
-                 
-                     {/* Toggle Password Visibility */}
-                     <button
-                        type="button"
-                        onClick={() => setPasswordVisible(!passwordVisible)}
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
-                     >
-                        {passwordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
-                     </button>
-                  </div>
-                  {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+                  <div className=" mt-5">
+                     <div className="w-full relative">
+                        <FloatingLabelInput
+                           id="password"
+                           label="Password"
+                           type={passwordVisible ? "text" : "password"}
+                           placeholder="******"
+                           defaultValue={"password"}
+                           className={`primary-input ${errors.password ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
+                           labelClassName={`transition-all duration-300 ${errors.password ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
+                           {...register("password", {
+                              required: "Password is required",
+                              minLength: {
+                                 value: 6,
+                                 message: "Password must be at least 6 characters",
+                              },
+                           })}
+                        />
 
-              </div>
+                        {/* Toggle Password Visibility */}
+                        <button
+                           type="button"
+                           onClick={() => setPasswordVisible(!passwordVisible)}
+                           className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+                        >
+                           {passwordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
+                        </button>
+                     </div>
+                     {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+
+                  </div>
 
                   {loginError && <p className="text-red-500 text-sm">{loginError}</p>}
 
