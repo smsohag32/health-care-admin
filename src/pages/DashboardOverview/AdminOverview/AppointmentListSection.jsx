@@ -1,10 +1,17 @@
 import { useState } from "react";
-import CustomPagination from "@/components/pagination/CustomPagination";
 import { Button } from "@/components/ui/button";
 import Pagination2 from "@/components/pagination/Pagination2";
+import { Calendar, ChartNetwork, Ellipsis, Stethoscope } from "lucide-react";
+import CustomDropdown from "@/components/Dropdown/CustomDropdown";
 
 const AppointmentListSection = () => {
-
+   const [date, setDate] = useState(new Date())
+   const [selectedDept, setSelectedDept] = useState("")
+   const [dept, setDept] = useState([
+      { label: "Cardiology", value: "cardiology" },
+      { label: "Neurology", value: "neurology" },
+      { label: "Orthopedics", value: "orthopedics" }
+   ]);
    const mockData = [
       { id: 1, name: "Ayesha Sultana", doctor: "Dr. Mohammed Ali", department: "Cardiology", time: "10:00 AM", status: true },
       { id: 2, name: "Jahidul Islam", doctor: "Dr. Sara Rahman", department: "Neurology", time: "11:00 AM", status: false },
@@ -33,9 +40,10 @@ const AppointmentListSection = () => {
       { id: 25, name: "Shabana Parveen", doctor: "Dr. Ahmed Rafiq", department: "Pediatrics", time: "11:00 AM", status: true }
    ];
 
+
    const [aptData, setAptData] = useState(mockData);
    const [currentPage, setCurrentPage] = useState(1);
-   const itemsPerPage = 5;
+   const itemsPerPage = 4;
 
    const totalPages = Math.ceil(aptData.length / itemsPerPage);
    const indexOfFirstItem = (currentPage - 1) * itemsPerPage;
@@ -51,60 +59,73 @@ const AppointmentListSection = () => {
       );
       setAptData(updatedData);
    };
+   const handleDeptSelect = (dept) => {
+      setSelectedDept(dept)
+   }
 
    return (
       <div className="bg-[#ffffff] rounded-[8px] p-4 mt-6">
-         <div>
-            <h1 className="py-[7px] px-4 rounded-[8px] text-title text-[24px] font-normal">Appointment List</h1>
+         <div className="flex items-center w-full justify-between gap-6 flex-col lg:flex-row ">
+            <h1 className="py-[7px] border-s-4 border-s-skyblue whitespace-nowrap line-clamp-1 px-4 rounded-[4px] text-title text-[24px] font-normal">Appointment List</h1>
+            <div className="flex items-center gap-4">
+               <CustomDropdown isDatePicker={true}
+                  onSelect={setDate}
+                  icon={<Calendar size={16} className="text-des" />}
+                  selectedValue={date} triggerClassName={"border w-[136px] overflow-clip  border-[#B4B4B4]"} />
+               <CustomDropdown
+                  onSelect={handleDeptSelect}
+                  options={dept}
+                  placeholder="Select Dept."
+                  icon={<ChartNetwork size={16} className="text-des" />}
+                  triggerClassName={"border w-[136px]   border-[#B4B4B4]"} />
+               <CustomDropdown
+                  onSelect={handleDeptSelect}
+                  options={dept}
+                  placeholder="Select Doctor"
+                  icon={<Stethoscope size={16} className="text-des" />}
+                  triggerClassName={"border w-[136px] overflow-clip  border-[#B4B4B4]"} />
+            </div>
          </div>
          {aptData && aptData.length > 0 ? (
             <div className="w-full flex flex-col">
-               <div className="mt-6  min-w-full relative overflow-y-auto overflow-x-auto">
+               <div className="mt-6  min-w-full relative overflow-y-auto  overflow-x-auto">
                   <table className="overflow-auto border-0 m-0 w-full min-w-full">
                      <thead className="rounded-md border-none font-[500] text-center">
                         <tr className="border-none bg-[#F8F8F8] rounded-md text-[16px] font-[500]">
-                           <th className="px-6 py-5 text-center text-des whitespace-nowrap">SL No</th>
-                           <th className="px-6 py-5 text-start text-des">Patients</th>
-                           <th className="px-6 py-5 text-start text-des">Doctor</th>
-                           <th className="px-6 py-5 text-center text-des">Department</th>
-                           <th className="px-6 py-5 text-center text-des">Time</th>
-                           <th className="px-6 py-5 text-center text-des">Action</th>
+                           <th className="ps-6 pe-1 py-5 text-start text-title whitespace-nowrap">SL No</th>
+                           <th className="px-6 py-5 text-start text-title">Patients</th>
+                           <th className="px-6 py-5 text-start text-title">Doctor</th>
+                           <th className="px-6 py-5 text-start text-title">Department</th>
+                           <th className="px-6 py-5 text-start text-title">Time</th>
+                           <th className="px-6 py-5 text-end w-full flex items-center justify-end text-title"><Ellipsis /></th>
                         </tr>
                      </thead>
                      <tbody className="bg-white">
                         {currentItems.map((data, index) => (
                            <tr key={data.id} className="bg-white border-b-[2px] border-[#E9EDF1] text-[16px]">
-                              <td className="px-6 py-4 text-center font-medium text-[#6C6C6C]">
+                              <td className="ps-6 pe-1 py-4 text-start font-medium text-des">
                                  {indexOfFirstItem + index + 1}
                               </td>
-                              <td className="px-6 py-4 text-base font-medium text-[#6B6B6B] text-start">
-                                 <div className="flex items-center gap-2">
+                              <td className="px-6 py-4 text-base font-medium text-des text-start">
+                                 <div className="flex items-start gap-2">
                                     <p>{data.name}</p>
                                  </div>
                               </td>
-                              <td className="px-6 py-4 text-base font-medium text-[#6B6B6B] text-start">
+                              <td className="px-6 py-4 text-base font-medium text-des text-start">
                                  {data.doctor}
                               </td>
-                              <td className="px-6 py-4 text-base font-medium text-center text-[#6B6B6B]">
+                              <td className="px-6 py-4 text-base font-medium text-start text-des">
                                  {data.department}
                               </td>
-                              <td className="px-6 py-4 text-center">{data.time}</td>
-                              <td className="px-6 py-4 text-center">
+                              <td className="px-6 py-4 text-start whitespace-nowrap">{data.time}</td>
+                              <td className="px-3 py-4 text-end flex items-center justify-end w-full">
                                  <Button
                                     variant="ghost"
                                     type="button"
-                                    className="px-3 py-2 rounded-[8px]"
+                                    className="px-3 py-2 text-des rounded-[8px]"
                                     onClick={() => handleStatusChange(data.id, data.status)}
                                  >
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                       <path
-                                          d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
-                                          stroke="currentColor"
-                                          strokeWidth="2"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                       />
-                                    </svg>
+                                    <Ellipsis />
                                  </Button>
                               </td>
                            </tr>

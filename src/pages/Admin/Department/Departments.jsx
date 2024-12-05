@@ -3,7 +3,7 @@ import Empty from "@/components/empty/Empty";
 import CustomPagination from "@/components/pagination/CustomPagination";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import UserAvatar from "@/components/user-avatar/UserAvatar";
+
 import { useState } from "react";
 import AddDept from "./AddDept";
 
@@ -13,7 +13,7 @@ const Departments = () => {
       id: 1,
       name: "Human Resources",
       code: "HR001",
-    
+
       address: "5th Floor, Tower A, Corporate Park, City Center, Dhaka.",
       status: true,
    },
@@ -21,7 +21,7 @@ const Departments = () => {
       id: 2,
       name: "Finance",
       code: "FIN002",
-     
+
       address: "2nd Floor, Tower B, Business District, Chattogram.",
       status: false,
    },
@@ -29,7 +29,7 @@ const Departments = () => {
       id: 3,
       name: "Information Technology",
       code: "IT003",
-     
+
       address: "1st Floor, Innovation Hub, Silicon Street, Dhaka.",
       status: true,
    },
@@ -37,7 +37,7 @@ const Departments = () => {
       id: 4,
       name: "Marketing",
       code: "MKT004",
-      
+
       address: "Ground Floor, Brand Building, Ad Street, Dhaka.",
       status: false,
    },
@@ -45,7 +45,7 @@ const Departments = () => {
       id: 5,
       name: "Customer Support",
       code: "CS005",
-    
+
       address: "3rd Floor, Client Relations Hub, Central Road, Sylhet.",
       status: true,
    },
@@ -53,7 +53,7 @@ const Departments = () => {
       id: 6,
       name: "Research and Development",
       code: "RND006",
-      
+
       address: "7th Floor, Discovery Tower, Knowledge Avenue, Dhaka.",
       status: true,
    },
@@ -61,7 +61,7 @@ const Departments = () => {
       id: 7,
       name: "Procurement",
       code: "PROC007",
-     
+
       address: "4th Floor, Supply Chain Building, Vendor Street, Khulna.",
       status: false,
    },
@@ -145,7 +145,7 @@ const Departments = () => {
                                  <td className="px-6 py-4 text-base font-medium text-[#6B6B6B] text-start">
                                     {data.mobile}
                                  </td>
-                               
+
                                  <td className="px-6 py-4 text-base font-medium text-center text-[#6B6B6B]">
                                     <div className="flex items-center min-w-[120px] justify-center gap-3">
                                        <Switch
@@ -212,7 +212,7 @@ const Departments = () => {
          </div>
 
 
-  
+
          <AddDept isOpen={isAdd} setOpen={setAdd}></AddDept>
       </div>
    );

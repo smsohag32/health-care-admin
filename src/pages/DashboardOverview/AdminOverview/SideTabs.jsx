@@ -7,7 +7,7 @@ const SideTabs = () => {
    const [activeTab, setActiveTab] = useState("Doctors");
 
    return (
-      <div className="bg-[#ffffff] rounded-[8px] p-4">
+      <div className="bg-[#ffffff] h-full rounded-[8px] p-4">
          {/* Tabs */}
          <div className="w-full flex items-center">
             <button

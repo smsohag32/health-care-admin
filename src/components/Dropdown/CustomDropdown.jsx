@@ -11,6 +11,7 @@ const CustomDropdown = ({
    selectedValue,
    triggerClassName,
    onSelect,
+   icon
 }) => {
    const [date, setDate] = useState(selectedValue || new Date());
 
@@ -34,6 +35,7 @@ const CustomDropdown = ({
    return (
       <Select>
          <SelectTrigger className={`${triggerClassName} w-full text-sm gap-2 `}>
+            {icon}
             <SelectValue placeholder={isDatePicker ? formatDate(date) : placeholder} />
          </SelectTrigger>
          <SelectContent>
@@ -46,8 +48,8 @@ const CustomDropdown = ({
                />
             ) : (
                options.map((option, index) => (
-                  <SelectItem key={index} value={option}>
-                     {option}
+                  <SelectItem key={index} value={option?.value}>
+                     {option?.label}
                   </SelectItem>
                ))
             )}

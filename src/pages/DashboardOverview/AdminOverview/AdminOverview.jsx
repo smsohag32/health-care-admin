@@ -18,12 +18,12 @@ const AdminOverview = () => {
             <button className="bg-[#E8F4FA] text-[#178CCB]  rounded-[24px] py-3 px-4 font-semibold  flex items-center gap-2 ">View Details <ArrowUpRight /> </button>
          </div>
 
-         <div className="mt-6 grid lg:grid-cols-3 grid-cols-1 gap-6">
-            <div className="w-full lg:col-span-2">
+         <div className="mt-6 grid h-auto lg:grid-cols-3 grid-cols-1 gap-6">
+            <div className="w-full lg:col-span-2 h-auto">
                <AdminStat />
                <AppointmentListSection />
             </div>
-            <div className="w-full">
+            <div className="w-full h-auto">
                <SideTabs />
             </div>
          </div>
