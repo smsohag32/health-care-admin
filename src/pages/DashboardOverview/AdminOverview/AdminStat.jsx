@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import op from "@/assets/dashboard/op.png"
 import patients from "@/assets/dashboard/patients.png"
 const AdminStat = () => {
-   return (
+return (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6" >
          <div className=" p-4 rounded-[8px] bg-[#ffffff] border-[1px] border-[#E8F4FA]   ">
             <div className="flex items-center" >
