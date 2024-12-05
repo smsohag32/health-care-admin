@@ -1,5 +1,5 @@
 
-const CustomPagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination2 = ({ currentPage, totalPages, onPageChange }) => {
    const handleClick = (page) => {
       onPageChange(page);
    };
@@ -53,13 +53,7 @@ const CustomPagination = ({ currentPage, totalPages, onPageChange }) => {
    };
 
    return (
-      <div className="flex mt-auto items-center flex-wrap  justify-center lg:justify-between px-2">
-         <div className="hidden lg:flex items-center gap-2">
-            <p>Show items per page :</p>{" "}
-            <button className="px-2 py-1 border border-gray-300 bg-gray-100 rounded-l-md">
-               10
-            </button>
-         </div>
+      <div className="flex mt-auto items-center flex-wrap  justify-center lg:justify-end px-2">
          <div className="flex justify-center gap-2 mt-4">
             <button
                disabled={currentPage === 1}
@@ -81,4 +75,4 @@ const CustomPagination = ({ currentPage, totalPages, onPageChange }) => {
    );
 };
 
-export default CustomPagination;
+export default Pagination2;

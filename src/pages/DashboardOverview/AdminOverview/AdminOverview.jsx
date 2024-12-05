@@ -2,6 +2,7 @@ import Graph from "@/assets/svg/Graph";
 import { ArrowUpRight } from "lucide-react";
 import AdminStat from "./AdminStat";
 import SideTabs from "./SideTabs";
+import AppointmentListSection from "./AppointmentListSection";
 
 const AdminOverview = () => {
    return (
@@ -20,6 +21,7 @@ const AdminOverview = () => {
          <div className="mt-6 grid lg:grid-cols-3 grid-cols-1 gap-6">
             <div className="w-full lg:col-span-2">
                <AdminStat />
+               <AppointmentListSection />
             </div>
             <div className="w-full">
                <SideTabs />
