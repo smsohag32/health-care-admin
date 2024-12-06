@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { setCookie, deleteCookie } from "./cookieUtils";
 import { loginApi } from "../api/loginApi";
+import { deleteCookie, getCookie, setCookie } from "@/utils/helper";
+const getPersistedToken = getCookie("hc-token");
+const getPersistedUser = JSON.parse(getCookie("hc-user"));
 
 const initialState = {
-   token: null,
-   user: null,
+   token: getPersistedToken || null,
+   user: getPersistedUser || null,
    isLoading: false,
    error: null,
 };
@@ -15,7 +17,7 @@ export const loginUser = createAsyncThunk(
    async (credentials, { rejectWithValue }) => {
       try {
          const response = await loginApi(credentials);
-         return response;
+         return response?.data;
       } catch (error) {
          return rejectWithValue(error.message || "Login failed");
       }
@@ -30,8 +32,8 @@ const authSlice = createSlice({
       logoutUser: (state) => {
          state.token = null;
          state.user = null;
-         deleteCookie("token");
-         deleteCookie("user");
+         deleteCookie("hc-token");
+         deleteCookie("hc-user");
       },
    },
    extraReducers: (builder) => {
@@ -41,14 +43,13 @@ const authSlice = createSlice({
             state.error = null;
          })
          .addCase(loginUser.fulfilled, (state, action) => {
-            const { token, user } = action.payload;
-
+            console.log("action", action?.payload);
+            const { token, dto } = action.payload.data;
             state.isLoading = false;
             state.token = token;
-            state.user = user;
-
-            if (token) setCookie("token", token);
-            if (user) setCookie("user", JSON.stringify(user));
+            state.user = dto;
+            if (token) setCookie("hc-token", token);
+            if (dto) setCookie("hc-user", JSON.stringify(dto));
          })
          .addCase(loginUser.rejected, (state, action) => {
             state.isLoading = false;

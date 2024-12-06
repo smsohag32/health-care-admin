@@ -36,14 +36,14 @@ const Pagination2 = ({ currentPage, totalPages, onPageChange }) => {
 
       return pageNumbers.map((page, index) =>
          page === "..." ? (
-            <span key={index} className="px-4 py-2">
+            <span key={index} className=" px-2 py-1">
                ...
             </span>
          ) : (
             <button
                key={index}
                onClick={() => handleClick(page)}
-               className={`px-4 py-2 border border-gray-300 ${currentPage === page ? "primary-bg text-white" : ""
+               className={` px-2 py-1 border border-gray-300 ${currentPage === page ? "primary-bg text-white" : ""
                   }`}
             >
                {page}
@@ -58,7 +58,7 @@ const Pagination2 = ({ currentPage, totalPages, onPageChange }) => {
             <button
                disabled={currentPage === 1}
                onClick={() => handleClick(currentPage - 1)}
-               className="px-4 py-2 border border-gray-300 rounded-l-md"
+               className=" px-2 py-1 border disabled:opacity-50 disabled:cursor-not-allowed border-gray-300 rounded-l-md"
             >
                Previous
             </button>
@@ -66,7 +66,7 @@ const Pagination2 = ({ currentPage, totalPages, onPageChange }) => {
             <button
                disabled={currentPage === totalPages}
                onClick={() => handleClick(currentPage + 1)}
-               className="px-4 py-2 border border-gray-300 rounded-r-md"
+               className=" px-2 py-1 border disabled:opacity-50 disabled:cursor-not-allowed border-gray-300 rounded-r-md"
             >
                Next
             </button>

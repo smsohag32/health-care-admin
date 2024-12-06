@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import TopBar from "./Topbar";
 import Sidebar from "./Sidebar";
-import { Toaster } from "../ui/sonner";
 import { ScrollRestoration } from "react-router-dom";
 
 const DashboardLayout = ({ children }) => {
@@ -26,7 +25,7 @@ const DashboardLayout = ({ children }) => {
             </div>
 
          </div>
-         <Toaster position="top-right" />
+
          <ScrollRestoration />
       </div>
    );

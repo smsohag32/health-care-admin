@@ -2,15 +2,17 @@ import loginImage from "@/assets/icons/logo.png";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { FloatingLabelInput } from "@/components/ui/floating-label-input";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { AuthContext } from "@/context/AuthProvider";
+import { useDispatch } from "react-redux";
+import { loginUser } from "@/redux-store/slice/authSlice";
+import { toast } from "sonner";
 
 const Login = () => {
-   const { logIn, loginLoading } = useContext(AuthContext);
-   const navigate = useNavigate();
-   const from = "/dashboard";
 
+   const navigate = useNavigate();
+   const [loading, setLoading] = useState(false)
+   const dispatch = useDispatch()
    const {
       register,
       handleSubmit,
@@ -20,21 +22,30 @@ const Login = () => {
    const [passwordVisible, setPasswordVisible] = useState(false);
    const [loginError, setLoginError] = useState(null);
 
-   const onSubmit = async (userInfo) => {
-      setLoginError(null);
-      navigate("/dashboard")
-      // try {
-      //    const success = await logIn(userInfo.phoneNo, userInfo.password);
-      //    if (success) {
-      //       navigate(from, { replace: true });
-      //    } else {
-      //       setLoginError("Invalid Credentials");
-      //    }
-      // } catch (error) {
-      //    console.error("Login error:", error);
-      //    setLoginError("An unexpected error occurred. Please try again.");
-      // }
+   const onSubmit = async (data) => {
+      const { userId, password } = data;
+      setLoading(true);
+      try {
+         const resultAction = await dispatch(loginUser({ userId, password })).unwrap();
+
+         if (resultAction) {
+            toast.success("Login successful");
+            navigate("/dashboard");
+         } else {
+            console.log(resultAction)
+            toast.error(`${resultAction?.message}`);
+         }
+      } catch (error) {
+         if (error.response && error.response.status === 400) {
+            toast.error("Login failed: ", error.response.data || "Invalid login credentials");
+         } else {
+            toast.error("Login failed due to an unexpected error");
+         }
+      } finally {
+         setLoading(false);
+      }
    };
+
 
    return (
       <div className="min-h-screen flex">
@@ -53,22 +64,22 @@ const Login = () => {
                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="w-full">
                      <FloatingLabelInput
-                        id="phoneNo"
-                        placeholder="Phone Number"
-                        label="Enter Your Phone Number"
-                        type="tel"
+                        id="userId"
+                        placeholder="Phone Number or User ID"
+                        label="Enter Your Phone Number or User ID"
+                        type="text"
                         defaultValue={"+8801540042699"}
-                        className={`primary-input ${errors.phoneNo ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
-                        labelClassName={`transition-all duration-300 ${errors.phoneNo ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
-                        {...register("phoneNo", {
-                           required: "Phone number is required",
+                        className={`primary-input ${errors.userId ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
+                        labelClassName={`transition-all duration-300 ${errors.userId ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
+                        {...register("userId", {
+                           required: "Phone number or User ID is required",
                            pattern: {
-                              value: /^(\+8801|01)[3-9]\d{8}$/,
-                              message: "Invalid Bangladeshi phone number format",
+                              value: /^(?:\+8801|01)[3-9]\d{8}$|^[a-zA-Z0-9]{5,20}$/,
+                              message: "Invalid Bangladeshi phone number or User ID format",
                            },
                         })}
                      />
-                     {errors.phoneNo && <p className="text-red-500 text-xs mt-1">{errors.phoneNo.message}</p>}
+                     {errors.userId && <p className="text-red-500 text-xs mt-1">{errors.userId.message}</p>}
                   </div>
 
                   <div className=" mt-5">
@@ -78,7 +89,7 @@ const Login = () => {
                            label="Password"
                            type={passwordVisible ? "text" : "password"}
                            placeholder="******"
-                           defaultValue={"password"}
+                           defaultValue={"11223344"}
                            className={`primary-input ${errors.password ? "ring-red-500 focus:ring-red-500 border-red-500" : "ring-[#178ccbd0] focus:ring-[#178ccbd0] border-[#178ccbd0]"}`}
                            labelClassName={`transition-all duration-300 ${errors.password ? "text-red-500" : "text-gray-500 peer-focus:text-[#178ccbd0]"}`}
                            {...register("password", {
@@ -117,10 +128,10 @@ const Login = () => {
 
                   <button
                      type="submit"
-                     className={`w-full py-2  rounded-md text-white font-medium disabled:opacity-60 bg-[#178CCB] hover:bg-[#178CCB] transition duration-300 ${loginLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-                     disabled={loginLoading}
+                     className={`w-full py-2  rounded-md text-white font-medium disabled:opacity-60 bg-[#178CCB] hover:bg-[#178CCB] transition duration-300 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                     disabled={loading}
                   >
-                     {loginLoading ? "Loading..." : "Log In"}
+                     {loading ? "Loading..." : "Log In"}
                   </button>
                </form>
             </div>

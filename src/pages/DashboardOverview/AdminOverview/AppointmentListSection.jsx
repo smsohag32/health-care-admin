@@ -88,7 +88,7 @@ const AppointmentListSection = () => {
          </div>
          {aptData && aptData.length > 0 ? (
             <div className="w-full flex flex-col">
-               <div className="mt-6  min-w-full relative overflow-y-auto  overflow-x-auto">
+               <div className="mt-6  min-w-full relative min-h-[400px] overflow-y-auto  overflow-x-auto">
                   <table className="overflow-auto border-0 m-0 w-full min-w-full">
                      <thead className="rounded-md border-none font-[500] text-center">
                         <tr className="border-none bg-[#F8F8F8] rounded-md text-[16px] font-[500]">

@@ -18,11 +18,15 @@ import UserAvatar from "../user-avatar/UserAvatar"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "@/context/AuthProvider"
+import { useDispatch } from "react-redux"
+import { logoutUser } from "@/redux-store/slice/authSlice"
 
 export function ProfileMenu() {
    const navigate = useNavigate()
+   const dispatch = useDispatch()
    const { user } = useContext(AuthContext)
    const handleLogout = () => {
+      dispatch(logoutUser())
       navigate("/", { replace: true });
    };
 

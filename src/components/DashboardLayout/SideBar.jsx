@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 import SidebarItem from "./SidebarItem";
 
@@ -9,13 +9,13 @@ import { items } from "./LinkItems";
 
 export default function Sidebar({ toggle, setToggle }) {
    const [openItems, setOpenItems] = useState({});
- 
+
    const handleToggle = (label) => {
       setOpenItems((prev) => ({ ...prev, [label]: !prev[label] }));
    };
 
- 
- 
+
+
    return (
       <div className="w-[300px]  pb-6   flex flex-col border-r border-[1px] border-[#E9FFF4] h-screen overflow-hidden  bg-white ">
          <button
@@ -38,8 +38,8 @@ export default function Sidebar({ toggle, setToggle }) {
          </button>
          <div className="flex items-center mb-2 w-full flex-col py-2 overflow-hidden  justify-center px-4  ">
             <div className="w-full flex gap-2 px-3  py-2.5 items-center justify-start">
-              <img src={logo} alt="Health Care"  className="w-10"/>
-              <p>HC</p>
+               <img src={logo} alt="Health Care" className="w-10" />
+               <p>HC</p>
             </div>
          </div>
 

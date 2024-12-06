@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "";
+const BASE_URL = "http://localhost:3100/api/v1";
 
 export const loginApi = async (credential) => {
    try {
-      const response = axios.post(`${BASE_URL}/singin`, credential);
-      return response.data
+      const response = await axios.post(`${BASE_URL}/auth/singin`, credential);
+      return response;
    } catch (err) {
-      throw new Error(err?.response?.data?.message);
+      console.log("loging error ", err.response.data);
+      throw new Error(err?.response?.data);
    }
 };
