@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3100/api/v1";
+const BASE_URL = "https://hc-server-xi.vercel.app/api/v1";
 
 export const loginApi = async (credential) => {
    try {
