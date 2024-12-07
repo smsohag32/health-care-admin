@@ -48,11 +48,10 @@ const Login = () => {
 
 
    return (
-      <div className="min-h-screen flex">
-         <div className="hidden lg:flex lg:w-[80px] bg-gradient-to-b from-[#178CCB] to-[#178CCB]" />
+      <div className="min-h-screen flex w-full">
 
          {/* Right Section with Login Form */}
-         <div className="flex items-center justify-center w-full lg:w-11/12">
+         <div className="flex items-center justify-center w-full ">
             <div className="w-full max-w-md bg-white rounded-[8px] px-8 pt-8 pb-9 space-y-6">
                <div className="flex flex-col items-center justify-center mb-4">
                   <img src={loginImage} alt="Health Care BD Logo" className="h-20 w-20" />
@@ -136,6 +135,8 @@ const Login = () => {
                </form>
             </div>
          </div>
+         <div className="hidden lg:flex lg:w-[80px] bg-gradient-to-b from-[#178CCB] to-[#178CCB]" />
+
       </div>
    );
 };

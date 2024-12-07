@@ -4,6 +4,8 @@ import Ambulence from "@/pages/Admin/Ambulence/Ambulence";
 import Calendar from "@/pages/Admin/Calendar/Calendar";
 import Departments from "@/pages/Admin/Department/Departments";
 import Doctors from "@/pages/Admin/Doctors/Doctors";
+import AddEmployee from "@/pages/Admin/Employees/AddEmployee";
+import EmployeeProfile from "@/pages/Admin/Employees/EmployeeProfile";
 import Employees from "@/pages/Admin/Employees/Employees";
 import Login from "@/pages/authentication/Login";
 import AdminOverview from "@/pages/DashboardOverview/AdminOverview/AdminOverview";
@@ -42,21 +44,25 @@ export const router = createBrowserRouter([
             element: <Employees />
          },
          {
-            path: "/dashboard/",
-            element: <Employees />
+            path: "/dashboard/employee/:id",
+            element: <EmployeeProfile />
          },
-        
+         {
+            path: "/dashboard/employee/add",
+            element: <AddEmployee />
+         },
+
          {
             path: "/dashboard/doctors",
             element: <Doctors />
          },
-        
+
          {
             path: "/dashboard/ambulence",
             element: <Ambulence />
          },
-        
-       
+
+
          {
             path: "/dashboard/calendar",
             element: <Calendar />

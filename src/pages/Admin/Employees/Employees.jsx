@@ -1,10 +1,11 @@
+import EmployeeList from "./EmployeeList";
 
 const Employees = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+   return (
+      <div>
+         <EmployeeList />
+      </div>
+   );
 };
 
 export default Employees;

@@ -111,4 +111,21 @@
    .primary-gradient {
       @apply bg-gradient-to-br from-[#178CCBde] via-[#178CCBd5] to-[#178CCB] rounded-b-[16px];
    }
+
+   @media print {
+      body * {
+         display: none !important;
+      }
+
+      .print-only,
+      .print-only * {
+         display: block !important;
+      }
+      .print-only {
+         margin: 0 auto;
+         padding: 20px;
+         max-width: 800px;
+         background: #fff;
+      }
+   }
 }
