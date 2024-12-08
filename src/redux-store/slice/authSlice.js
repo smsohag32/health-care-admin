@@ -44,12 +44,12 @@ const authSlice = createSlice({
          })
          .addCase(loginUser.fulfilled, (state, action) => {
             console.log("action", action?.payload);
-            const { token, dto } = action.payload.data;
+            const { token, user } = action.payload;
             state.isLoading = false;
             state.token = token;
-            state.user = dto;
+            state.user = user;
             if (token) setCookie("hc-token", token);
-            if (dto) setCookie("hc-user", JSON.stringify(dto));
+            if (user) setCookie("hc-user", JSON.stringify(user));
          })
          .addCase(loginUser.rejected, (state, action) => {
             state.isLoading = false;

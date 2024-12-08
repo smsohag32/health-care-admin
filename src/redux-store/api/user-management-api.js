@@ -14,7 +14,23 @@ const userManagementApi = apiSlice.injectEndpoints({
          }),
          providesTags: ["employee"],
       }),
+      addEmployee: builder.mutation({
+         query: (newEm) => ({
+            url: `/employee/add`,
+            method: "POST",
+            body: newEm,
+         }),
+         invalidatesTags: ["employee"],
+      }),
+
+      getUserType: builder.query({
+         query: () => ({
+            url: `/usertype/all`,
+         }),
+         providesTags: ["usertype"],
+      }),
    }),
 });
 
-export const { useGetEmployeesQuery, useGetEmployeeQuery } = userManagementApi;
+export const { useGetEmployeesQuery, useGetEmployeeQuery, useAddEmployeeMutation } =
+   userManagementApi;
