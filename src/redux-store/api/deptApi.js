@@ -2,13 +2,41 @@ import { apiSlice } from "../slice/apiSlice";
 
 const deptApi = apiSlice.injectEndpoints({
    endpoints: (builder) => ({
-      getDsr: builder.query({
+      getDept: builder.query({
          query: () => ({
-            url: `/dept`,
+            url: `/department/all`,
          }),
+         transformResponse: (res) => {
+            return res.slice().reverse();
+         },
          providesTags: ["dept"],
+      }),
+      addDept: builder.mutation({
+         query: (newDepartment) => ({
+            url: `/department/add`,
+            method: "POST",
+            body: newDepartment,
+         }),
+         invalidatesTags: ["dept"],
+      }),
+      editDept: builder.mutation({
+         query: (updateDept, id) => ({
+            url: `/department/edit/${id}`,
+            method: "PUT",
+            body: updateDept,
+         }),
+         invalidatesTags: ["dept"],
+      }),
+      deleteDept: builder.mutation({
+         query: (updateDept, id) => ({
+            url: `/department/delete/${id}`,
+            method: "DELETE",
+            body: updateDept,
+         }),
+         invalidatesTags: ["dept"],
       }),
    }),
 });
 
-export const { useGetDsrQuery } = deptApi;
+export const { useGetDeptQuery, useAddDeptMutation, useEditDeptMutation, useDeleteDeptMutation } =
+   deptApi;

@@ -52,57 +52,57 @@ export default function TopBar({ toggle, setToggle }) {
 
    return (
       <div
-        className='px-5'
+         className='px-5'
       >
-         <div  className='flex relative w-full rounded-b-[8px] transition-all duration-300 items-center top-0 justify-between px-4 border-b border-b-gray-200 z-50 bg-white py-3'
-         style={{
+         <div className='flex relative w-full rounded-b-[8px] transition-all duration-300 items-center top-0 justify-between px-4 border-b border-b-gray-200 z-50 bg-white py-3'
+            style={{
 
-            height: '75px',
+               height: '75px',
 
-         }}>
-         <div className='flex items-center gap-5'>
-            <button onClick={() => setToggle(!toggle)} className="">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-               </svg>
-            </button>
-            <Link to={'/'} className='text-[18px]  uppercase opacity-75 font-medium'>Dashboard</Link>
-         </div>
-
-
-         <div className='flex items-center gap-10'>
-         <div className="relative w-full">
-               <input
-                  type="text"
-                  placeholder="Search"
-                  className="py-[10px] ps-[50px] primary-input pe-5 w-full outline-none border border-[#006837] rounded-[4px]"
-               />
-               <span className="absolute left-4 transform -translate-y-1/2 top-1/2 ">
-                  <svg
-                     width="20"
-                     height="20"
-                     viewBox="0 0 20 20"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                     <path
-                        d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z"
-                        stroke="#B4B4B4"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                     />
+            }}>
+            <div className='flex items-center gap-5'>
+               <button onClick={() => setToggle(!toggle)} className="">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-               </span>
+               </button>
+               <Link to={'/'} className='text-[18px]  uppercase opacity-75 font-medium'>Dashboard</Link>
             </div>
-            <button className='bg-[#EEF9FF] p-2 relative '><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M14 21H10M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z" stroke="#006837" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round" />
-            </svg>
-               <span className='absolute text-red-500 right-0 -top-1 z-50'><Dot /></span>
-            </button>
-            <div className=' pe-1'>
+
+
+            <div className='flex items-center gap-10'>
+               <div className="relative w-full">
+                  <input
+                     type="text"
+                     placeholder="Search"
+                     className="py-[10px] ps-[50px] primary-input pe-5 w-full outline-none border border-[#006837] rounded-[4px]"
+                  />
+                  <span className="absolute left-4 transform -translate-y-1/2 top-1/2 ">
+                     <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                           d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z"
+                           stroke="#B4B4B4"
+                           strokeWidth="2"
+                           strokeLinecap="round"
+                           strokeLinejoin="round"
+                        />
+                     </svg>
+                  </span>
+               </div>
+               <button className='bg-[#EEF9FF] p-2 relative '><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 21H10M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z" stroke="#006837" stroke-width="1.5" stroke-linecap="round" strokeLinejoin="round" />
+               </svg>
+                  <span className='absolute text-red-500 right-0 -top-1 z-50'><Dot /></span>
+               </button>
+               {/* <div className=' pe-1'>
                <FullscreenButton />
+            </div> */}
             </div>
-         </div>
          </div>
 
       </div >

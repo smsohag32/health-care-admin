@@ -53,7 +53,7 @@ const EmployeeProfile = () => {
                      <User className="h-24 w-24 text-gray-400" />
                   </div>
                   <div className="text-center md:text-left">
-                     <h2 className="text-2xl font-bold text-title">{`${employee.firstName} ${employee.lastName}`}</h2>
+                     <h2 className="text-2xl font-bold text-title">{`${employee?.firstName} ${employee.lastName}`}</h2>
                      <p className="text-des mt-1.5">{employee.phoneNo}</p>
                      <Badge variant="secondary" className="mt-1.5">
                         {employee?.userType?.name}
@@ -66,7 +66,7 @@ const EmployeeProfile = () => {
                         <Edit className="h-4 w-4 mr-2" />
                         Edit
                      </Button>
-                     <Button onClick={() => (window.location.href = `mailto:${employee.email}`)} variant="outline" size="sm">
+                     <Button onClick={() => (window.location.href = `mailto:${employee?.email}`)} variant="outline" size="sm">
                         <Mail className="h-4 w-4 mr-2" />
                         Email
                      </Button>
@@ -82,27 +82,27 @@ const EmployeeProfile = () => {
                   <div className="space-y-4">
                      <div>
                         <h3 className="text-lg font-semibold text-gray-700 mb-2">Contact Information</h3>
-                        <p className="text-des">Email: {employee.email}</p>
-                        <p className="text-des">Phone: {employee.phoneNo}</p>
+                        <p className="text-des">Email: {employee?.email}</p>
+                        <p className="text-des">Phone: {employee?.phoneNo}</p>
                      </div>
                      <div>
                         <h3 className="text-lg font-semibold text-gray-700 mb-2">Employment Details</h3>
-                        <p className="text-des">Employee ID: {employee.employeeID}</p>
-                        <p className="text-des">Department: {employee.department.name}</p>
-                        <p className="text-des">Status: {employee.status}</p>
+                        <p className="text-des">Employee ID: {employee?.employeeID}</p>
+                        <p className="text-des">Department: {employee?.department?.name}</p>
+                        <p className="text-des">Status: {employee?.status}</p>
                      </div>
                   </div>
                   <div className="space-y-4">
                      <div>
                         <h3 className="text-lg font-semibold text-gray-700 mb-2">Address</h3>
-                        <p className="text-des">{employee.address.street}</p>
-                        <p className="text-des">{`${employee.address.city}, ${employee.address.state} ${employee.address.postalCode}`}</p>
-                        <p className="text-des">{employee.address.country}</p>
+                        <p className="text-des">{employee?.address?.street}</p>
+                        <p className="text-des">{`${employee?.address?.city}, ${employee.address.state} ${employee?.address?.postalCode}`}</p>
+                        <p className="text-des">{employee?.address?.country}</p>
                      </div>
                      <div>
                         <h3 className="text-lg font-semibold text-gray-700 mb-2">Emergency Contact</h3>
-                        <p className="text-des">{employee.emergencyContact.name} ({employee.emergencyContact.relationship})</p>
-                        <p className="text-des">Phone: {employee.emergencyContact.phoneNo}</p>
+                        <p className="text-des">{employee?.emergencyContact?.name} ({employee.emergencyContact?.relationship})</p>
+                        <p className="text-des">Phone: {employee?.emergencyContact?.phoneNo}</p>
                      </div>
                   </div>
                </div>

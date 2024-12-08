@@ -85,7 +85,7 @@
          font-medium;
    }
    .primary-btn {
-      @apply bg-gradient-to-br w-full from-[#178CCB] py-[12px] px-6 to-[#178CCB] text-base flex items-center gap-2 justify-center font-normal text-white rounded-[8px];
+      @apply bg-gradient-to-br w-full disabled:opacity-50 disabled:cursor-not-allowed from-[#178CCB] py-[12px] px-6 to-[#178CCB] text-base flex items-center gap-2 justify-center font-normal text-white rounded-[8px];
    }
    .light-bg {
       @apply bg-[#EEF9FF];
