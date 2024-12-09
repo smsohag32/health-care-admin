@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQueryWithAuth = async (args, api, extraOptions) => {
    const baseQuery = fetchBaseQuery({
-      // baseUrl: "https://hc-server-xi.vercel.app/api/v1",
-      baseUrl: "http://localhost:3100/api/v1",
+      baseUrl: "https://hc-server-xi.vercel.app/api/v1",
+      // baseUrl: "http://localhost:3100/api/v1",
       prepareHeaders: (headers) => {
          const token = getCookie("hc-token");
 

@@ -32,6 +32,11 @@ const userManagementApi = apiSlice.injectEndpoints({
          }),
          providesTags: ["usertype"],
       }),
+      getPermissions: builder.query({
+         query: () => ({
+            url: `/permissions/all`,
+         }),
+      }),
    }),
 });
 
@@ -40,4 +45,5 @@ export const {
    useGetEmployeeQuery,
    useAddEmployeeMutation,
    useGetUserTypeQuery,
+   useGetPermissionsQuery,
 } = userManagementApi;

@@ -1,4 +1,4 @@
-import { Car, ContactRound, MapPin, PanelsTopLeft, Plus, Users } from "lucide-react";
+import { Car, ContactRound, LockKeyhole, MapPin, PanelsTopLeft, Plus, ShieldBan, UserRoundCog, Users, UsersRound } from "lucide-react";
 
 export const items = [
    {
@@ -126,22 +126,22 @@ export const items = [
    {
       to: "/dashboard/user-management",
       label: "User Management",
-      icon: <Users size={20} />,
+      icon: <UserRoundCog size={20} />,
       subItems: [
          {
             to: "/dashboard/user-management",
             label: "All User",
-            icon: <Users size={20} />,
+            icon: <UsersRound size={20} />,
          },
          {
-            to: "/dashboard/user-management",
+            to: "/dashboard/user-types",
             label: "Roles Manage",
-            icon: <Users size={20} />,
+            icon: <ShieldBan size={20} />,
          },
          {
             to: "/dashboard/permissions",
             label: "Permission",
-            icon: <Plus size={20} />,
+            icon: <LockKeyhole size={20} />,
          },
       ],
    },
