@@ -90,6 +90,16 @@ export const items = [
       ),
    },
    {
+      to: "/dashboard/doctors",
+      label: "Doctors",
+      icon: <ContactRound />,
+   },
+   {
+      to: "/dashboard/ambulence",
+      label: "Ambulence",
+      icon: <Car />,
+   },
+   {
       to: "/dashboard/employees",
       label: "Employees",
       icon: <Users size={20} />,
@@ -107,21 +117,36 @@ export const items = [
       ],
    },
 
+
    {
       to: "/dashboard/departments",
       label: "Departments",
       icon: <PanelsTopLeft size={20} />,
    },
    {
-      to: "/dashboard/doctors",
-      label: "Doctors",
-      icon: <ContactRound />,
+      to: "/dashboard/user-management",
+      label: "User Management",
+      icon: <Users size={20} />,
+      subItems: [
+         {
+            to: "/dashboard/user-management",
+            label: "All User",
+            icon: <Users size={20} />,
+         },
+         {
+            to: "/dashboard/user-management",
+            label: "Roles Manage",
+            icon: <Users size={20} />,
+         },
+         {
+            to: "/dashboard/permissions",
+            label: "Permission",
+            icon: <Plus size={20} />,
+         },
+      ],
    },
-   {
-      to: "/dashboard/ambulence",
-      label: "Ambulence",
-      icon: <Car />,
-   },
+
+
    // {
    //    to: "/dashboard/calendar",
    //    label: "Calendar",

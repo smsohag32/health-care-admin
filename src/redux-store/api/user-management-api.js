@@ -6,6 +6,9 @@ const userManagementApi = apiSlice.injectEndpoints({
          query: () => ({
             url: `/employees/all`,
          }),
+         transformResponse: (res) => {
+            return res.slice().reverse();
+         },
          providesTags: ["employee"],
       }),
       getEmployee: builder.query({
@@ -32,5 +35,9 @@ const userManagementApi = apiSlice.injectEndpoints({
    }),
 });
 
-export const { useGetEmployeesQuery, useGetEmployeeQuery, useAddEmployeeMutation } =
-   userManagementApi;
+export const {
+   useGetEmployeesQuery,
+   useGetEmployeeQuery,
+   useAddEmployeeMutation,
+   useGetUserTypeQuery,
+} = userManagementApi;

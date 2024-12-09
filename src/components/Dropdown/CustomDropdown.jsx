@@ -32,8 +32,9 @@ const CustomDropdown = ({
       }
    };
 
+
    return (
-      <Select>
+      <Select onValueChange={handleSelect}>
          <SelectTrigger className={`${triggerClassName} w-full text-sm gap-2 `}>
             {icon}
             <SelectValue placeholder={isDatePicker ? formatDate(date) : placeholder} />

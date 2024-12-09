@@ -3,7 +3,7 @@ import Main from "@/layouts/Main";
 import Ambulence from "@/pages/Admin/Ambulence/Ambulence";
 import Calendar from "@/pages/Admin/Calendar/Calendar";
 import Departments from "@/pages/Admin/Department/Departments";
-import Doctors from "@/pages/Admin/Doctors/Doctors";
+import Doctors from "@/pages/Admin/Doctors/DoctorList";
 import AddEmployee from "@/pages/Admin/Employees/AddEmployee";
 import EmployeeProfile from "@/pages/Admin/Employees/EmployeeProfile";
 import Employees from "@/pages/Admin/Employees/Employees";

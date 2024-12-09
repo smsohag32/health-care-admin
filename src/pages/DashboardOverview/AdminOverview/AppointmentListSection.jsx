@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import Pagination2 from "@/components/pagination/Pagination2";
 import { Calendar, ChartNetwork, Ellipsis, Stethoscope } from "lucide-react";
 import CustomDropdown from "@/components/Dropdown/CustomDropdown";
+import { useGetDeptQuery } from "@/redux-store/api/deptApi";
 
 const AppointmentListSection = () => {
    const [date, setDate] = useState(new Date())
+   const { data: deptData } = useGetDeptQuery()
    const [selectedDept, setSelectedDept] = useState("")
    const [dept, setDept] = useState([
       { label: "Cardiology", value: "cardiology" },
@@ -63,6 +65,7 @@ const AppointmentListSection = () => {
       setSelectedDept(dept)
    }
 
+
    return (
       <div className="bg-[#ffffff] rounded-[8px] p-4 mt-6">
          <div className="flex items-center w-full justify-between gap-6 flex-col lg:flex-row ">
@@ -74,7 +77,7 @@ const AppointmentListSection = () => {
                   selectedValue={date} triggerClassName={"border w-[136px] overflow-clip  border-[#B4B4B4]"} />
                <CustomDropdown
                   onSelect={handleDeptSelect}
-                  options={dept}
+                  options={deptData?.map(dept => ({ value: dept._id, label: dept.name }))}
                   placeholder="Select Dept."
                   icon={<ChartNetwork size={16} className="text-des" />}
                   triggerClassName={"border w-[136px]   border-[#B4B4B4]"} />

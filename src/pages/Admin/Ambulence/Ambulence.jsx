@@ -1,10 +1,11 @@
+import Empty from "@/components/empty/Empty";
 
 const Ambulence = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+   return (
+      <div>
+         <Empty message={"There is no data in ambulance."} />
+      </div>
+   );
 };
 
 export default Ambulence;

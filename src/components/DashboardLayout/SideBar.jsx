@@ -43,7 +43,7 @@ export default function Sidebar({ toggle, setToggle }) {
             </div>
          </div>
 
-         <div className="px-4  space-y-1 max-h-[60vh] overflow-auto custom-scrollbar pb-6">
+         <div className="px-4  space-y-1 max-h-[75vh] overflow-auto custom-scrollbar pb-6">
             {items.map((item, index) => (
                <SidebarItem
                   key={index}
