@@ -7,7 +7,6 @@ import Doctors from "@/pages/Admin/Doctors/DoctorList";
 import AddEmployee from "@/pages/Admin/Employees/AddEmployee";
 import EmployeeProfile from "@/pages/Admin/Employees/EmployeeProfile";
 import Employees from "@/pages/Admin/Employees/Employees";
-import PermissionList from "@/pages/Admin/UserManagement/PermissionList";
 import UserManagement from "@/pages/Admin/UserManagement/UserManagement";
 import UserTypes from "@/pages/Admin/UserManagement/UserTypes";
 import Login from "@/pages/authentication/Login";
@@ -67,10 +66,6 @@ export const router = createBrowserRouter([
          {
             path: "/dashboard/user-types",
             element: <UserTypes />
-         },
-         {
-            path: "/dashboard/permissions",
-            element: <PermissionList />
          },
 
          {

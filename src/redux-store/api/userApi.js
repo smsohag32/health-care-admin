@@ -8,15 +8,13 @@ const userApi = apiSlice.injectEndpoints({
          }),
          providesTags: ["user"],
       }),
-      recharge: builder.mutation({
-         query: (rechargeData) => ({
-            url: "/recharges",
-            method: "POST",
-            body: rechargeData,
+      getUsers: builder.query({
+         query: () => ({
+            url: `/users/all`,
          }),
-         invalidatesTags: ["user"],
+         providesTags: ["user"],
       }),
    }),
 });
 
-export const { useGetUserQuery, useRechargeMutation } = userApi;
+export const { useGetUserQuery, useGetUsersQuery } = userApi;

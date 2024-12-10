@@ -39,8 +39,8 @@ const SidebarItem = ({ to, label, subItems, isOpen, onToggle, icon }) => {
             onClick={handleClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`rounded-[4px] text-[16px] group whitespace-nowrap transition-all w-full font-normal border-b-1 border-b-transparent py-[10px] ps-[18px] pe-[12px] cursor-pointer
-               ${isActive ? "bg-[#E8F4FA] border-b text-[#178CCB] !border-b-[#178CCB] " : " hover:bg-[#E8F4FA] hover:text-[#178CCB] "}`}
+            className={`rounded-[4px] text-[16px] text-title group whitespace-nowrap transition-all w-full font-normal border-b-1 border-b-transparent py-[10px] ps-[18px] pe-[12px] cursor-pointer
+               ${isActive ? "bg-[#E8F4FA] border-b !text-[#178CCB] !border-b-[#178CCB] " : " hover:bg-[#E8F4FA] hover:text-[#178CCB] "}`}
          >
             <div className="w-full bg-transparent">
                <div className="flex items-center w-full bg-transparent gap-[16px] h-full">

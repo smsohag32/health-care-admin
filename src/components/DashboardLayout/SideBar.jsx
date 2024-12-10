@@ -17,7 +17,7 @@ export default function Sidebar({ toggle, setToggle }) {
 
 
    return (
-      <div className="w-[300px]  pb-6   flex flex-col border-r border-[1px] border-[#E9FFF4] h-screen overflow-hidden  bg-white ">
+      <div className="w-[320px]  pb-2   flex flex-col border-r border-[1px] border-[#E9FFF4] h-screen overflow-hidden  bg-white ">
          <button
             onClick={() => setToggle(!toggle)}
             className="absolute lg:hidden bg-red-600 text-white rounded-s-full p-3 text-bold right-0 top-5">
@@ -36,14 +36,14 @@ export default function Sidebar({ toggle, setToggle }) {
                />
             </svg>
          </button>
-         <div className="flex items-center mb-2 w-full flex-col py-2 overflow-hidden  justify-center px-4  ">
+         <div className="flex items-center w-full flex-col py-2 overflow-hidden  justify-center px-2  ">
             <div className="w-full flex gap-2 px-3  py-2.5 items-center justify-start">
-               <img src={logo} alt="Health Care" className="w-10" />
+               <img src={logo} alt="Health Care" className="w-8" />
                <p>HC</p>
             </div>
          </div>
 
-         <div className="px-4  space-y-1 max-h-[75vh] overflow-auto custom-scrollbar pb-6">
+         <div className="px-2  space-y-1  max-h-[82vh] overflow-auto custom-scrollbar pb-6">
             {items.map((item, index) => (
                <SidebarItem
                   key={index}

@@ -2,16 +2,15 @@ import VmModal from "@/components/modals/HcModal";
 import { Checkbox } from "@/components/ui/checkbox";
 import { FloatingLabelInput } from "@/components/ui/floating-label-input";
 import { FloatingTextArea } from "@/components/ui/floating-textarea";
-import { useAddDeptMutation } from "@/redux-store/api/deptApi";
-import { useGetPermissionsQuery } from "@/redux-store/api/user-management-api";
+import { useAddTypeMutation, useGetPermissionsQuery } from "@/redux-store/api/user-management-api";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Loading from "@/components/loading/Loading";
 
-const AddUserType = ({ isOpen, setOpen }) => {
+const AddUserType = ({ isOpen, setOpen, refetch }) => {
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-   const [addDept, { isLoading }] = useAddDeptMutation();
+   const [addType, { isLoading }] = useAddTypeMutation();
    const { data: permissionData, isLoading: perLoading } = useGetPermissionsQuery(undefined, { skip: !isOpen });
 
    // State to track selected permissions
@@ -21,19 +20,21 @@ const AddUserType = ({ isOpen, setOpen }) => {
    const handlePermissionChange = (permission) => {
       setSelectedPermissions((prev) =>
          prev.includes(permission)
-            ? prev.filter((perm) => perm !== permission) // Remove if already selected
-            : [...prev, permission] // Add if not already selected
+            ? prev.filter((perm) => perm !== permission)
+            : [...prev, permission]
       );
    };
 
    // Handle form submission
-   const handleAddDept = async (dept) => {
+   const handleAddType = async (dept) => {
       try {
-         const data = await addDept({ ...dept, permissions: selectedPermissions }).unwrap();
+         const data = await addType({ ...dept, permissions: selectedPermissions }).unwrap();
          reset();
-         setSelectedPermissions([]); // Reset selected permissions
+         setSelectedPermissions([]);
          setOpen(false);
-         toast.success(data?.message || "Department added successfully!");
+         refetch()
+         toast.success(data?.message || "Type added successfully!");
+
       } catch (err) {
          console.error(err);
          toast.error(err?.data?.message || "Internal Server problem, Please try again.");
@@ -71,7 +72,7 @@ const AddUserType = ({ isOpen, setOpen }) => {
 
    return (
       <VmModal size={"800px"} title={"Add new User Type."} isOpen={isOpen} handleClose={handleClose}>
-         <form onSubmit={handleSubmit(handleAddDept)} className="w-full">
+         <form onSubmit={handleSubmit(handleAddType)} className="w-full">
             <div className="w-full mb-4 space-y-1">
                <FloatingLabelInput
                   id="name"

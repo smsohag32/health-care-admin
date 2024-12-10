@@ -1,9 +1,9 @@
 
 
 import { useState } from "react";
+import TopBar from "@/components/DashboardLayout/TopBar"
 
-import TopBar from "./Topbar";
-import Sidebar from "./Sidebar";
+import Sidebar from "@/components/DashboardLayout/Sidebar";
 import { ScrollRestoration } from "react-router-dom";
 
 const DashboardLayout = ({ children }) => {
@@ -15,12 +15,12 @@ const DashboardLayout = ({ children }) => {
             }`}>
             <Sidebar toggle={toggle} setToggle={setToggle} />
          </div>
-         <div className={` w-full duration-500  transition-all transform  ${toggle ? "lg:pl-0 pl-[300px]" : "lg:pl-[300px] pl:0"
+         <div className={` w-full duration-500  transition-all transform  ${toggle ? "lg:pl-0 pl-[320px]" : "lg:pl-[320px] pl:0"
             }`}>
             <div className="w-full sticky top-0 left-0 right-0">
                <TopBar toggle={toggle} setToggle={setToggle} />
             </div>
-            <div className="px-6 py-4">
+            <div className="px-4 py-4">
                {children}
             </div>
 
