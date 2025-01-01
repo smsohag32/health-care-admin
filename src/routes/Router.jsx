@@ -11,6 +11,7 @@ import UserManagement from "@/pages/Admin/UserManagement/UserManagement";
 import UserTypes from "@/pages/Admin/UserManagement/UserTypes";
 import Login from "@/pages/authentication/Login";
 import AdminOverview from "@/pages/DashboardOverview/AdminOverview/AdminOverview";
+import NotFound from "@/pages/ErrorPage/NotFound";
 import Landing from "@/pages/landing/Landing";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -77,5 +78,9 @@ export const router = createBrowserRouter([
             element: <Calendar />
          },
       ],
+   },
+   {
+      path: "*",
+      element: <NotFound />,
    },
 ]);
