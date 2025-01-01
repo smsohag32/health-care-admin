@@ -135,7 +135,6 @@ const Login = () => {
                </form>
             </div>
          </div>
-         <div className="hidden lg:flex lg:w-[80px] bg-gradient-to-b from-[#178CCB] to-[#178CCB]" />
 
       </div>
    );

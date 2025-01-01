@@ -72,8 +72,6 @@ export const router = createBrowserRouter([
             path: "/dashboard/ambulence",
             element: <Ambulence />
          },
-
-
          {
             path: "/dashboard/calendar",
             element: <Calendar />
