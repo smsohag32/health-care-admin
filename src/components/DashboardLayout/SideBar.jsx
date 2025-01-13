@@ -37,9 +37,9 @@ export default function Sidebar({ toggle, setToggle }) {
             </svg>
          </button>
          <div className="flex items-center w-full flex-col py-2 overflow-hidden  justify-center px-2  ">
-            <div className="w-full flex gap-2 px-3  py-2.5 items-center justify-start">
+            <div className="w-full flex gap-2 px-3  py-2 items-center justify-start">
                <img src={logo} alt="Health Care" className="w-8" />
-               <p>HC</p>
+               <p className="text-[20px] font-medium ">Health Care</p>
             </div>
          </div>
 
