@@ -2,13 +2,13 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "../ui/drawer";
 
-const VmModal = ({ isOpen, handleClose, title, size, children }) => {
+const HcModal = ({ isOpen, handleClose, title, size, children, ...props }) => {
    const isDesktop = useMediaQuery("(min-width: 768px)");
 
 
 
    if (isDesktop) {
-      return <Dialog open={isOpen} onOpenChange={handleClose}>
+      return <Dialog {...props} open={isOpen} onOpenChange={handleClose}>
          <DialogContent className="w-full"
             style={{ maxWidth: size || "auto" }}>
             <DialogHeader className={"border-b"}>
@@ -23,7 +23,7 @@ const VmModal = ({ isOpen, handleClose, title, size, children }) => {
 
 
    return (
-      <Drawer open={isOpen} onOpenChange={handleClose}>
+      <Drawer {...props} open={isOpen} onOpenChange={handleClose}>
          <DrawerContent className="w-full"
             style={{ maxWidth: size || "auto" }}>
             <div className="mx-auto w-full max-w-sm">
@@ -39,4 +39,4 @@ const VmModal = ({ isOpen, handleClose, title, size, children }) => {
    );
 };
 
-export default VmModal;
+export default HcModal;

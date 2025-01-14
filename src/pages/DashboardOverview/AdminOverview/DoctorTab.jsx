@@ -5,6 +5,7 @@ import user4 from "@/assets/dashboard/user/user4.png";
 import DoctorCard from "@/components/cards/DoctorCard";
 
 const DoctorTab = () => {
+
    const doctorData = [
       {
          id: 1,

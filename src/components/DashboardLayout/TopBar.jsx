@@ -1,6 +1,7 @@
 import { Dot } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ProfileMenu } from './ProfileMenu';
 
 // const FullscreenButton = () => {
 //    const [isFullscreen, setIsFullscreen] = useState(false);
@@ -52,9 +53,9 @@ export default function TopBar({ toggle, setToggle }) {
 
    return (
       <div
-         className='px-4 sticky top-0'
+         className=' sticky top-0'
       >
-         <div className='flex relative w-full rounded-b-[8px] transition-all duration-300 items-center top-0 justify-between px-4 border-b border-b-gray-200 z-50 bg-white py-2'
+         <div className='flex relative w-full rounded-b-[8px] transition-all duration-300 items-center top-0 justify-between ps-4 border-2 border-white z-50 bg-white '
             style={{
 
                height: '66px',
@@ -66,7 +67,7 @@ export default function TopBar({ toggle, setToggle }) {
                      <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                </button>
-               <Link to={'/'} className='text-[18px]  uppercase opacity-75 font-medium'>Dashboard</Link>
+               <Link to={'/dashboard'} className='text-[18px]  uppercase opacity-75 font-medium'>Dashboard</Link>
             </div>
 
 
@@ -99,9 +100,9 @@ export default function TopBar({ toggle, setToggle }) {
                </svg>
                   <span className='absolute text-red-500 right-0 -top-1 z-50'><Dot /></span>
                </button>
-               {/* <div className=' pe-1'>
-               <FullscreenButton />
-            </div> */}
+               <div className="w-full">
+                  <ProfileMenu />
+               </div>
             </div>
          </div>
 

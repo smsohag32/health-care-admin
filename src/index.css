@@ -114,6 +114,10 @@
       }
    }
 
+   .main-container {
+      @apply px-5 max-w-7xl mx-auto w-full;
+   }
+
    .primary-btn {
       @apply bg-gradient-to-br w-full disabled:opacity-50 disabled:cursor-not-allowed from-[#178CCB] py-[12px] px-6 to-[#178CCB] text-base flex items-center gap-2 justify-center font-normal text-white rounded-[8px];
    }

@@ -1,6 +1,6 @@
 import Dashboard from "@/layouts/Dashboard";
 import Main from "@/layouts/Main";
-import Ambulence from "@/pages/Admin/Ambulence/Ambulence";
+import AmbulanceManagement from "@/pages/Admin/Ambulence/AmbulanceManagement";
 import Calendar from "@/pages/Admin/Calendar/Calendar";
 import Departments from "@/pages/Admin/Department/Departments";
 import Doctors from "@/pages/Admin/Doctors/DoctorList";
@@ -70,8 +70,8 @@ export const router = createBrowserRouter([
          },
 
          {
-            path: "/dashboard/ambulence",
-            element: <Ambulence />
+            path: "/dashboard/ambulance",
+            element: <AmbulanceManagement />
          },
          {
             path: "/dashboard/calendar",

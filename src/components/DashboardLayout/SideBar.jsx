@@ -4,7 +4,6 @@ import SidebarItem from "./SidebarItem";
 
 import logo from "@/assets/icons/logo.png";
 
-import { ProfileMenu } from "./ProfileMenu";
 import { items } from "./LinkItems";
 
 export default function Sidebar({ toggle, setToggle }) {
@@ -39,11 +38,11 @@ export default function Sidebar({ toggle, setToggle }) {
          <div className="flex items-center w-full flex-col py-2 overflow-hidden  justify-center px-2  ">
             <div className="w-full flex gap-2 px-3  py-2 items-center justify-start">
                <img src={logo} alt="Health Care" className="w-8" />
-               <p className="text-[20px] font-medium ">Health Care</p>
+               <p className="text-[20px] font-medium ">HEALTH CARE</p>
             </div>
          </div>
 
-         <div className="px-2  space-y-1  max-h-[82vh] overflow-auto custom-scrollbar pb-6">
+         <div className="px-2  space-y-1  max-h-[90vh] overflow-auto custom-scrollbar pb-6">
             {items.map((item, index) => (
                <SidebarItem
                   key={index}
@@ -59,9 +58,7 @@ export default function Sidebar({ toggle, setToggle }) {
             ))}
          </div>
 
-         <div className="mt-auto ps-[18px] pe-[12px] w-full">
-            <ProfileMenu />
-         </div>
+
       </div>
    );
 }

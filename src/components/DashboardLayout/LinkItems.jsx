@@ -8,7 +8,6 @@ import {
    Users,
    UsersRound,
    Edit,
-
    FileText,
    FilePlus,
    Calendar,
@@ -32,7 +31,7 @@ export const items = [
       icon: <ContactRound size={20} />,
    },
    {
-      to: "/dashboard/ambulence",
+      to: "/dashboard/ambulance",
       label: "Ambulance",
       icon: <Car size={20} />,
    },
